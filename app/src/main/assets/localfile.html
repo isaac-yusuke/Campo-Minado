@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico Desmos</title>
+    <script src="https://www.desmos.com/api/v1.10/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background-color: #f4f4f4;
+        }
+        #calculator {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="calculator"></div>
+<script>
+    const elt = document.getElementById('calculator');
+    const calculator = Desmos.GraphingCalculator(elt, {
+        expressions: false,
+        settingsMenu: false,
+        zoomButtons: false,
+        keypad: false
+    });
+
+    fetch('graph_state.json')
+        .then(response => response.json())
+        .then(state => {
+            calculator.setState(state);
+        })
+        .catch(error => console.error('Erro ao carregar o estado do gráfico:', error));
+</script>
+</body>
+</html>
