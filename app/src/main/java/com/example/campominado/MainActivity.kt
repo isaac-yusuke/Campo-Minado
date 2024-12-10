@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.activity.ComponentActivity
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.viewinterop.AndroidView
 import java.io.File
 
 class MainActivity : ComponentActivity() {
@@ -39,4 +42,24 @@ class MainActivity : ComponentActivity() {
         // Carregar o arquivo HTML via servidor local
         webView.loadUrl("http://localhost:8080/localfile.html")
     }
+}
+
+// Função Composable para Preview - nao funcionou
+@Composable
+fun WebViewComposablePreview() {
+    AndroidView(factory = { context ->
+        WebView(context).apply {
+            settings.javaScriptEnabled = true
+            settings.domStorageEnabled = true
+            webViewClient = WebViewClient()
+            loadUrl("http://localhost:8080/localfile.html")
+        }
+    })
+}
+
+// Função Preview para o Android Studio
+@Preview(showBackground = true)
+@Composable
+fun PreviewWebView() {
+    WebViewComposablePreview()
 }
