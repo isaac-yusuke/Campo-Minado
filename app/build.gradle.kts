@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.campominado"
+    namespace = "com.isaacyyanagui.campominado"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.campominado"
+        applicationId = "com.isaacyyanagui.campominado"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
