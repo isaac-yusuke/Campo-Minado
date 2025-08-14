@@ -1,4 +1,4 @@
-package com.example.campominado.ui.theme
+package com.isaacyyanagui.campominado.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

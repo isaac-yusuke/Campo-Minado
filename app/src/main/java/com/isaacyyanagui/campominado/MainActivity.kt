@@ -1,4 +1,4 @@
-package com.example.campominado
+package com.isaacyyanagui.campominado
 
 import android.os.Bundle
 import android.webkit.WebView
